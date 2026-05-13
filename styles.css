@@ -15,6 +15,12 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -69,6 +75,7 @@ a {
 p {
   color: var(--muted);
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 h1,
@@ -76,13 +83,15 @@ h2,
 h3 {
   margin: 0;
   font-family: "Playfair Display", Georgia, serif;
-  line-height: 0.96;
+  line-height: 1.02;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .page-shell {
-  width: min(1440px, 100%);
+  width: min(1360px, 100%);
   margin: 0 auto;
-  padding: 22px;
+  padding: clamp(12px, 2vw, 22px);
 }
 
 .site-header {
@@ -90,7 +99,7 @@ h3 {
   top: 16px;
   z-index: 20;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, auto) minmax(190px, 1fr);
   gap: 18px;
   align-items: center;
   padding: 12px;
@@ -110,11 +119,13 @@ h3 {
 
 .brand {
   gap: 12px;
+  min-width: 0;
 }
 
 .brand-mark {
   display: grid;
   width: 48px;
+  flex: 0 0 48px;
   height: 48px;
   place-items: center;
   border-radius: 50%;
@@ -137,17 +148,21 @@ h3 {
 
 .route-nav {
   gap: 8px;
+  max-width: 100%;
   padding: 6px;
   border-radius: 999px;
   background: rgba(32, 23, 14, 0.06);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .route-nav a {
-  padding: 10px 15px;
+  padding: 10px 13px;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
+  white-space: nowrap;
   transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
@@ -163,10 +178,13 @@ h3 {
 
 .header-action {
   justify-self: end;
+  max-width: 100%;
   padding: 14px 18px;
   border-radius: 999px;
   color: var(--white);
   font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: center;
   background: var(--terracotta);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -179,14 +197,31 @@ h3 {
 
 .section-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: clamp(34px, 5vw, 70px);
   align-items: center;
 }
 
 .hero {
+  position: relative;
   min-height: calc(100vh - 110px);
-  padding: 108px 26px 88px;
+  padding: clamp(72px, 8vw, 118px) 26px 92px;
+}
+
+.hero::before {
+  position: absolute;
+  inset: 46px auto auto -90px;
+  z-index: -1;
+  width: min(52vw, 620px);
+  height: min(52vw, 620px);
+  pointer-events: none;
+  content: "";
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(197, 154, 87, 0.24), transparent 62%),
+    conic-gradient(from 120deg, transparent, rgba(168, 79, 54, 0.12), transparent);
+  filter: blur(2px);
+  animation: orbitTurn 42s linear infinite;
 }
 
 .eyebrow {
@@ -199,16 +234,17 @@ h3 {
 }
 
 .hero h1 {
-  max-width: 880px;
-  font-size: clamp(62px, 9vw, 148px);
-  letter-spacing: -0.06em;
+  max-width: 720px;
+  font-size: clamp(48px, 6.1vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
 .lead {
-  max-width: 620px;
+  max-width: 560px;
   margin: 28px 0 0;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(17px, 1.5vw, 21px);
 }
 
 .page-hero {
@@ -219,8 +255,8 @@ h3 {
 
 .page-hero h1 {
   max-width: 1180px;
-  font-size: clamp(58px, 9vw, 138px);
-  letter-spacing: -0.06em;
+  font-size: clamp(48px, 7.6vw, 112px);
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
@@ -231,7 +267,7 @@ h3 {
 .hero-actions {
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 34px;
+  margin-top: 30px;
 }
 
 .button {
@@ -243,6 +279,8 @@ h3 {
   border: 1px solid rgba(32, 23, 14, 0.16);
   border-radius: 999px;
   font-weight: 800;
+  text-align: center;
+  white-space: normal;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -260,12 +298,12 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(120px, 1fr));
   gap: 12px;
-  max-width: 640px;
-  margin-top: 34px;
+  max-width: 580px;
+  margin-top: 28px;
 }
 
 .hero-stats div {
-  padding: 18px;
+  padding: 16px;
   border: 1px solid rgba(32, 23, 14, 0.12);
   border-radius: 24px;
   background: rgba(255, 248, 236, 0.6);
@@ -276,7 +314,7 @@ h3 {
   display: block;
   color: var(--terracotta);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1;
 }
 
@@ -291,41 +329,41 @@ h3 {
 
 .map-stage {
   position: relative;
-  min-height: 700px;
+  min-height: 650px;
 }
 
 .map-card {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(32, 23, 14, 0.16);
-  border-radius: 38px;
+  border-radius: 42px;
   background:
     linear-gradient(90deg, rgba(32, 23, 14, 0.08) 1px, transparent 1px),
     linear-gradient(0deg, rgba(32, 23, 14, 0.08) 1px, transparent 1px),
     linear-gradient(135deg, #f9edcf, #d3b377);
   background-size: 36px 36px, 36px 36px, auto;
-  box-shadow: var(--shadow);
+  box-shadow: 0 34px 100px rgba(32, 23, 14, 0.22);
 }
 
 .main-map {
-  height: 640px;
-  transform: rotate(2deg);
+  height: 570px;
+  transform: rotate(1.5deg);
   transition: transform 0.18s ease-out;
   animation: mapFloat 8s ease-in-out infinite;
 }
 
 .main-map svg {
   position: absolute;
-  inset: 52px 34px 112px;
-  width: calc(100% - 68px);
-  height: calc(100% - 164px);
+  inset: 48px 36px 108px;
+  width: calc(100% - 72px);
+  height: calc(100% - 156px);
 }
 
 .terrain {
   fill: none;
   stroke-linecap: round;
-  stroke-width: 17;
-  opacity: 0.32;
+  stroke-width: 19;
+  opacity: 0.36;
 }
 
 .terrain-one {
@@ -341,7 +379,7 @@ h3 {
   stroke: var(--terracotta);
   stroke-dasharray: 12 14;
   stroke-linecap: round;
-  stroke-width: 5;
+  stroke-width: 5.5;
   animation: dash 15s linear infinite;
 }
 
@@ -381,8 +419,8 @@ h3 {
   gap: 18px;
   align-items: center;
   justify-content: space-between;
-  padding: 22px;
-  border-radius: 24px;
+  padding: 18px 22px;
+  border-radius: 22px;
   color: var(--white);
   background: rgba(32, 23, 14, 0.86);
 }
@@ -409,13 +447,13 @@ h3 {
 .compass {
   top: 4%;
   right: 2%;
-  width: 112px;
-  height: 112px;
+  width: 96px;
+  height: 96px;
   border: 1px solid rgba(32, 23, 14, 0.18);
   border-radius: 50%;
   color: var(--terracotta);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 48px;
+  font-size: 42px;
   background: var(--white);
   animation: compassBob 5s ease-in-out infinite;
 }
@@ -499,8 +537,8 @@ h3 {
 
 .section-heading h2,
 .contact h2 {
-  font-size: clamp(46px, 6.8vw, 104px);
-  letter-spacing: -0.05em;
+  font-size: clamp(40px, 5.8vw, 86px);
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 
@@ -524,8 +562,8 @@ h3 {
 
 .studio-panel h2 {
   max-width: 920px;
-  font-size: clamp(48px, 7vw, 112px);
-  letter-spacing: -0.06em;
+  font-size: clamp(42px, 6vw, 88px);
+  letter-spacing: -0.045em;
 }
 
 .studio-panel p:not(.eyebrow) {
@@ -560,7 +598,7 @@ h3 {
 .stack-card h3,
 .format-card h3 {
   margin-top: 18px;
-  font-size: clamp(34px, 4vw, 58px);
+  font-size: clamp(30px, 3.2vw, 46px);
 }
 
 .map-lab {
@@ -583,8 +621,8 @@ h3 {
 }
 
 .lab-copy h2 {
-  font-size: clamp(38px, 5vw, 76px);
-  letter-spacing: -0.05em;
+  font-size: clamp(34px, 4vw, 62px);
+  letter-spacing: -0.04em;
 }
 
 .lab-board {
@@ -678,8 +716,8 @@ h3 {
 
 .work-card {
   display: grid;
-  min-height: 410px;
-  padding: 18px;
+  min-height: 380px;
+  padding: clamp(16px, 2vw, 22px);
   border: 1px solid rgba(32, 23, 14, 0.14);
   border-radius: 34px;
   background: rgba(255, 248, 236, 0.72);
@@ -698,12 +736,12 @@ h3 {
 
 .work-card-large {
   grid-row: span 2;
-  min-height: 838px;
+  min-height: 780px;
 }
 
 .work-card h3 {
   margin-top: 10px;
-  font-size: clamp(30px, 4vw, 56px);
+  font-size: clamp(28px, 3.4vw, 48px);
 }
 
 .work-card p {
@@ -738,7 +776,7 @@ h3 {
 }
 
 .work-card-large .map-preview {
-  min-height: 570px;
+  min-height: 500px;
 }
 
 .antique-map {
@@ -811,14 +849,16 @@ h3 {
 
 .format-rail {
   display: grid;
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
   margin-top: 40px;
 }
 
 .format-card {
-  min-height: 420px;
-  padding: 28px;
+  min-width: 0;
+  min-height: 340px;
+  overflow: hidden;
+  padding: clamp(20px, 2.4vw, 28px);
   border: 1px solid rgba(32, 23, 14, 0.13);
   border-radius: 34px;
   background:
@@ -828,12 +868,22 @@ h3 {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.format-card h3 {
+  max-width: 100%;
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.08;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  text-wrap: balance;
+}
+
 .format-card:nth-child(even) {
-  transform: translateY(44px);
+  transform: translateY(28px);
 }
 
 .format-card:nth-child(even):hover {
-  transform: translateY(34px) rotate(0.5deg);
+  transform: translateY(20px) rotate(0.5deg);
 }
 
 .sticky-heading {
@@ -858,7 +908,7 @@ h3 {
 }
 
 .direction-list article {
-  padding: 28px;
+  padding: clamp(20px, 2.4vw, 28px);
 }
 
 .direction-list span {
@@ -867,7 +917,7 @@ h3 {
 
 .direction-list h3 {
   margin-top: 18px;
-  font-size: clamp(30px, 4vw, 52px);
+  font-size: clamp(28px, 3.4vw, 46px);
 }
 
 .timeline {
@@ -882,8 +932,8 @@ h3 {
 }
 
 .timeline article {
-  min-height: 280px;
-  padding: 26px;
+  min-height: 260px;
+  padding: clamp(20px, 2.3vw, 26px);
 }
 
 .timeline article:nth-child(even) {
@@ -905,9 +955,9 @@ h3 {
   margin: 0 auto;
   color: var(--paper);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(34px, 6vw, 92px);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  font-size: clamp(30px, 5vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   text-align: center;
 }
 
@@ -917,7 +967,7 @@ h3 {
 
 .timeline h3 {
   margin-top: 40px;
-  font-size: 34px;
+  font-size: clamp(28px, 2.7vw, 34px);
 }
 
 .contact {
@@ -952,8 +1002,9 @@ h3 {
   display: block;
   margin-bottom: 18px;
   color: var(--white);
-  font-size: clamp(26px, 4vw, 42px);
+  font-size: clamp(24px, 3vw, 36px);
   font-family: "Playfair Display", Georgia, serif;
+  overflow-wrap: anywhere;
 }
 
 .contact-page {
@@ -1018,11 +1069,11 @@ h3 {
 }
 
 .format-card:nth-child(even).reveal-card.is-visible {
-  transform: translateY(44px);
+  transform: translateY(28px);
 }
 
 .format-card:nth-child(even).reveal-card.is-visible:hover {
-  transform: translateY(34px) rotate(0.5deg);
+  transform: translateY(20px) rotate(0.5deg);
 }
 
 @keyframes dash {
@@ -1094,6 +1145,10 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .site-header {
+    border-radius: 34px;
+  }
+
   .route-nav,
   .header-action {
     justify-self: stretch;
@@ -1108,24 +1163,49 @@ h3 {
     text-align: center;
   }
 
+  .section-grid {
+    gap: 34px;
+  }
+
+  .page-hero {
+    min-height: auto;
+    padding-top: 84px;
+  }
+
+  .hero h1 {
+    max-width: 820px;
+    font-size: clamp(46px, 8.4vw, 80px);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(44px, 9vw, 86px);
+  }
+
   .hero {
     padding-top: 58px;
   }
 
   .map-stage {
-    min-height: 560px;
+    min-height: 520px;
   }
 
   .main-map {
-    height: 530px;
+    height: 500px;
   }
 
   .gallery-grid,
-  .format-rail,
   .gallery-grid-expanded,
   .brief-grid,
   .timeline {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .format-rail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .format-rail {
+    row-gap: 44px;
   }
 
   .gallery-grid-expanded .work-card-large {
@@ -1138,11 +1218,11 @@ h3 {
 
   .work-card-large {
     grid-row: auto;
-    min-height: 410px;
+    min-height: 380px;
   }
 
   .work-card-large .map-preview {
-    min-height: 260px;
+    min-height: 280px;
   }
 
   .sticky-heading {
@@ -1150,23 +1230,51 @@ h3 {
   }
 
   .format-card:nth-child(even),
-  .format-card:nth-child(even):hover {
+  .format-card:nth-child(even):hover,
+  .format-card:nth-child(even).reveal-card.is-visible,
+  .format-card:nth-child(even).reveal-card.is-visible:hover {
     transform: none;
   }
 }
 
 @media (max-width: 720px) {
   .page-shell {
-    padding: 12px;
+    padding: 10px;
   }
 
   .site-header {
     top: 8px;
     border-radius: 28px;
+    gap: 10px;
+    padding: 10px;
   }
 
   .brand {
     justify-content: center;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    font-size: 13px;
+  }
+
+  .route-nav {
+    gap: 6px;
+    border-radius: 22px;
+  }
+
+  .route-nav a {
+    flex: 1 1 calc(50% - 6px);
+    padding: 10px 8px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .header-action {
+    padding: 12px 14px;
+    font-size: 13px;
   }
 
   .hero,
@@ -1179,15 +1287,33 @@ h3 {
   .quote-band,
   .process,
   .contact {
-    padding: 68px 10px;
+    padding: 58px 12px;
+  }
+
+  .contact {
+    border-radius: 30px;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 16vw, 78px);
+    font-size: clamp(40px, 11vw, 58px);
+    line-height: 1;
+    letter-spacing: -0.025em;
   }
 
   .page-hero h1 {
-    font-size: clamp(46px, 15vw, 76px);
+    font-size: clamp(38px, 12vw, 62px);
+    letter-spacing: -0.035em;
+  }
+
+  .section-heading h2,
+  .contact h2,
+  .studio-panel h2 {
+    font-size: clamp(34px, 10vw, 54px);
+    letter-spacing: -0.03em;
+  }
+
+  .lead {
+    font-size: 17px;
   }
 
   .hero-stats,
@@ -1195,8 +1321,14 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .hero-stats {
+    gap: 10px;
+  }
+
   .studio-panel {
     min-height: 460px;
+    padding: 24px;
+    border-radius: 30px;
   }
 
   .lab-board {
@@ -1226,12 +1358,43 @@ h3 {
   }
 
   .map-stage {
-    min-height: 420px;
+    min-height: 370px;
   }
 
   .main-map {
-    height: 390px;
+    height: 340px;
     transform: none;
+  }
+
+  .map-caption {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .work-card,
+  .format-card,
+  .stack-card,
+  .direction-list article,
+  .timeline article,
+  .contact-card {
+    border-radius: 24px;
+  }
+
+  .work-card {
+    min-height: auto;
+  }
+
+  .map-preview,
+  .work-card-large .map-preview {
+    min-height: 220px;
+  }
+
+  .format-card {
+    min-height: auto;
   }
 
   .compass {
@@ -1246,6 +1409,32 @@ h3 {
 
   .contact-card a {
     overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1,
+  .page-hero h1 {
+    font-size: 36px;
+  }
+
+  .section-heading h2,
+  .contact h2,
+  .studio-panel h2,
+  .lab-copy h2 {
+    font-size: 32px;
+  }
+
+  .work-card h3,
+  .stack-card h3,
+  .format-card h3,
+  .direction-list h3,
+  .timeline h3 {
+    font-size: 28px;
+  }
+
+  .route-nav a {
+    flex-basis: 100%;
   }
 }
 
