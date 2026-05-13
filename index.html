@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Veresk Maps — создание исторических, туристических, военных и авторских карт на заказ."
+    />
+    <title>Veresk Maps — авторские карты на заказ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <a class="brand" href="#top" aria-label="Veresk Maps">
+          <span class="brand-mark">VM</span>
+          <span>
+            <strong>Veresk Maps</strong>
+            <small>карты с характером</small>
+          </span>
+        </a>
+
+        <nav class="route-nav" aria-label="Основная навигация">
+          <a href="#works">образцы</a>
+          <a href="#studio">студия</a>
+          <a href="#directions">направления</a>
+          <a href="#formats">форматы</a>
+          <a href="#process">процесс</a>
+          <a href="#contact">заказать</a>
+        </nav>
+
+        <a class="header-action" href="mailto:gattaca@yandex.ru">gattaca@yandex.ru</a>
+      </header>
+
+      <main>
+        <section class="hero section-grid" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Исторические • туристические • авторские карты</p>
+            <h1 id="hero-title">Создаем карты, которые хочется рассматривать снова.</h1>
+            <p class="lead">
+              Индивидуальные карты путешествий, сражений, генеалогий, маршрутов и
+              вымышленных миров — для интерьера, подарка, презентации или проекта.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#works">Смотреть образцы</a>
+              <a class="button button-ghost" href="#process">Как идет работа</a>
+            </div>
+            <div class="hero-stats" aria-label="Ключевые направления">
+              <div>
+                <strong data-count="12">0</strong>
+                <span>сюжетов карт</span>
+              </div>
+              <div>
+                <strong data-count="4">0</strong>
+                <span>формата подачи</span>
+              </div>
+              <div>
+                <strong data-count="1">0</strong>
+                <span>индивидуальная идея</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-stage" aria-label="Декоративная карта с маршрутом">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="compass">N</div>
+            <div class="map-card main-map">
+              <span class="map-pin pin-one"></span>
+              <span class="map-pin pin-two"></span>
+              <span class="map-pin pin-three"></span>
+              <svg viewBox="0 0 520 360" role="img" aria-label="Маршрут по карте">
+                <path class="terrain terrain-one" d="M26 244 C108 166 165 269 249 185 C326 108 388 171 496 86" />
+                <path class="terrain terrain-two" d="M44 88 C124 132 189 42 260 96 C343 159 385 114 478 224" />
+                <path class="route-line" d="M77 265 C151 206 166 102 251 134 C339 166 337 276 443 105" />
+              </svg>
+              <div class="map-caption">
+                <span>маршрут</span>
+                <strong>Алтайская экспедиция</strong>
+              </div>
+            </div>
+            <div class="floating-note note-top">архивные факты</div>
+            <div class="floating-note note-bottom">точки путешествий</div>
+          </div>
+        </section>
+
+        <section class="studio" id="studio" aria-labelledby="studio-title">
+          <div class="studio-panel reveal-card">
+            <p class="eyebrow">Концепция</p>
+            <h2 id="studio-title">Сайт должен ощущаться как вход в картографическую мастерскую.</h2>
+            <p>
+              Не обычная визитка с блоками «о нас» и «услуги», а живой маршрут:
+              крупные типографические акценты, карта как главный интерфейс, динамичная
+              галерея и ощущение ручной, авторской работы.
+            </p>
+          </div>
+          <div class="studio-stack" aria-label="Визуальные принципы">
+            <article class="stack-card reveal-card">
+              <span>01</span>
+              <h3>Навигация как маршрут</h3>
+              <p>Переходы по сайту выглядят как движение по точкам экспедиции.</p>
+            </article>
+            <article class="stack-card reveal-card">
+              <span>02</span>
+              <h3>Галерея как архив</h3>
+              <p>Образцы подаются крупно, с разными масштабами и настроением.</p>
+            </article>
+            <article class="stack-card reveal-card">
+              <span>03</span>
+              <h3>Контент легко менять</h3>
+              <p>Тексты и карточки остаются в понятной HTML-структуре без базы данных.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="marquee" aria-label="Типы карт">
+          <div class="marquee-track">
+            <span>исторические карты</span>
+            <span>военные кампании</span>
+            <span>карты путешествий</span>
+            <span>генеалогии</span>
+            <span>веломаршруты</span>
+            <span>фэнтези-миры</span>
+            <span aria-hidden="true">исторические карты</span>
+            <span aria-hidden="true">военные кампании</span>
+            <span aria-hidden="true">карты путешествий</span>
+            <span aria-hidden="true">генеалогии</span>
+            <span aria-hidden="true">веломаршруты</span>
+            <span aria-hidden="true">фэнтези-миры</span>
+          </div>
+        </section>
+
+        <section class="map-lab" aria-label="Декоративная карта мастерской">
+          <div class="lab-copy reveal-card">
+            <p class="eyebrow">Визуализация</p>
+            <h2>Каждая карта собирается из маршрута, легенды и настроения.</h2>
+          </div>
+          <div class="lab-board reveal-card">
+            <span class="lab-node lab-node-one">идея</span>
+            <span class="lab-node lab-node-two">архив</span>
+            <span class="lab-node lab-node-three">маршрут</span>
+            <span class="lab-node lab-node-four">печать</span>
+            <svg viewBox="0 0 900 420" aria-hidden="true">
+              <path class="lab-path path-a" d="M60 310 C210 120 310 390 450 180 C590 -20 700 310 850 100" />
+              <path class="lab-path path-b" d="M80 110 C220 260 340 70 480 250 C620 430 720 120 840 300" />
+              <path class="lab-path path-c" d="M120 350 C250 300 290 160 420 220 C560 285 645 210 790 60" />
+            </svg>
+          </div>
+        </section>
+
+        <section class="works" id="works" aria-labelledby="works-title">
+          <div class="section-heading">
+            <p class="eyebrow">Галерея</p>
+            <h2 id="works-title">Образцы как витрина мастерской</h2>
+            <p>
+              Карточки сделаны так, чтобы реальные изображения карт можно было заменить
+              позже без переделки структуры сайта.
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="work-card work-card-large reveal-card">
+              <div class="map-preview antique-map"></div>
+              <div>
+                <span>история</span>
+                <h3>Карта эпохи империй</h3>
+                <p>Сложная историческая тема, оформленная как интерьерный постер.</p>
+              </div>
+            </article>
+            <article class="work-card reveal-card">
+              <div class="map-preview travel-map"></div>
+              <div>
+                <span>путешествия</span>
+                <h3>Маршрут семейного трипа</h3>
+                <p>Города, даты, воспоминания и персональные отметки.</p>
+              </div>
+            </article>
+            <article class="work-card dark-card reveal-card">
+              <div class="map-preview battle-map"></div>
+              <div>
+                <span>военная карта</span>
+                <h3>Сражение и маневры</h3>
+                <p>Визуализация кампаний, фронтов и ключевых событий.</p>
+              </div>
+            </article>
+            <article class="work-card reveal-card">
+              <div class="map-preview fantasy-map"></div>
+              <div>
+                <span>на заказ</span>
+                <h3>Фэнтезийный мир</h3>
+                <p>Карта мира книги, игры, семейной легенды или личного проекта.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="formats" id="formats" aria-labelledby="formats-title">
+          <div class="section-heading">
+            <p class="eyebrow">Форматы</p>
+            <h2 id="formats-title">Сайт показывает, что карта может быть чем угодно.</h2>
+          </div>
+          <div class="format-rail">
+            <article class="format-card reveal-card">
+              <span>poster</span>
+              <h3>Интерьерный постер</h3>
+              <p>Крупная карта на бумаге или холсте для дома, офиса, кабинета.</p>
+            </article>
+            <article class="format-card reveal-card">
+              <span>digital</span>
+              <h3>Цифровая карта</h3>
+              <p>Изображение для сайта, презентации, соцсетей или личного проекта.</p>
+            </article>
+            <article class="format-card reveal-card">
+              <span>gift</span>
+              <h3>Подарочная история</h3>
+              <p>Маршрут отношений, путешествий, семьи или важного события.</p>
+            </article>
+            <article class="format-card reveal-card">
+              <span>archive</span>
+              <h3>Историческая схема</h3>
+              <p>Период, война, поход, династия или сложная хронология.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="directions section-grid" id="directions" aria-labelledby="directions-title">
+          <div class="section-heading sticky-heading">
+            <p class="eyebrow">Направления</p>
+            <h2 id="directions-title">Не каталог, а карта возможностей</h2>
+            <p>
+              Сайт не продает готовые товары. Он показывает подход, вызывает интерес и
+              ведет к обсуждению индивидуального заказа.
+            </p>
+          </div>
+
+          <div class="direction-list">
+            <article class="reveal-card">
+              <span>01</span>
+              <h3>Исторические карты</h3>
+              <p>Периоды, территории, династии, торговые пути и культурные сюжеты.</p>
+            </article>
+            <article class="reveal-card">
+              <span>02</span>
+              <h3>Карты путешествий</h3>
+              <p>Персональные маршруты, места силы, памятные даты и география историй.</p>
+            </article>
+            <article class="reveal-card">
+              <span>03</span>
+              <h3>Военные и тактические схемы</h3>
+              <p>Сражения, походы, линии фронта, перемещения армий и объясняющие легенды.</p>
+            </article>
+            <article class="reveal-card">
+              <span>04</span>
+              <h3>Генеалогии и хронологии</h3>
+              <p>Родовые линии, династии, правления и сложные связи в понятной композиции.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="quote-band" aria-label="Идея сайта">
+          <p>
+            «Здесь продается не просто изображение. Здесь собирается личная география:
+            места, факты, маршруты и события превращаются в объект, который хочется
+            держать перед глазами».
+          </p>
+        </section>
+
+        <section class="process" id="process" aria-labelledby="process-title">
+          <div class="section-heading">
+            <p class="eyebrow">Пошаговая работа</p>
+            <h2 id="process-title">Проект видно на каждом этапе</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="reveal-card">
+              <span>бриф</span>
+              <h3>Согласуем ориентиры</h3>
+              <p>Смотрим референсы, выбираем настроение, структуру и нужные блоки.</p>
+            </article>
+            <article class="reveal-card">
+              <span>прототип</span>
+              <h3>Собираем первый экран</h3>
+              <p>Показываем визуальный язык сайта до полной верстки.</p>
+            </article>
+            <article class="reveal-card">
+              <span>галерея</span>
+              <h3>Добавляем образцы</h3>
+              <p>Настраиваем карточки, подписи, навигацию и поведение на мобильных.</p>
+            </article>
+            <article class="reveal-card">
+              <span>финал</span>
+              <h3>Публикуем</h3>
+              <p>Вносим правки, переносим на хостинг и оставляем понятную структуру файлов.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+          <div>
+            <p class="eyebrow">Заказать карту</p>
+            <h2 id="contact-title">Начните с идеи, маршрута или темы.</h2>
+            <p>
+              Опишите задачу: исторический период, путешествие, формат печати,
+              настроение и примеры, которые нравятся.
+            </p>
+          </div>
+          <div class="contact-card">
+            <a href="mailto:gattaca@yandex.ru">gattaca@yandex.ru</a>
+            <p>Москва, Алтуфьевское шоссе, 85</p>
+            <p>ИП Марков Б.С. • ИНН 771500016357</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="to-top" type="button" aria-label="Вернуться наверх">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
