@@ -10,7 +10,21 @@ const cursorGlow = document.querySelector(".cursor-glow");
 const revealCards = document.querySelectorAll(".reveal-card");
 const counters = document.querySelectorAll("[data-count]");
 
+const setActivePage = () => {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute("href").split("#")[0];
+    link.classList.toggle("is-active", linkPage === currentPage);
+  });
+};
+
 const setActiveLink = () => {
+  if (!sections.length) {
+    setActivePage();
+    return;
+  }
+
   let currentSection = null;
 
   sections.forEach((section) => {
@@ -29,7 +43,9 @@ const setActiveLink = () => {
 };
 
 const toggleTopButton = () => {
-  toTopButton.classList.toggle("is-visible", window.scrollY > 520);
+  if (toTopButton) {
+    toTopButton.classList.toggle("is-visible", window.scrollY > 520);
+  }
 };
 
 window.addEventListener("scroll", () => {
@@ -38,29 +54,37 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("pointermove", (event) => {
-  cursorGlow.style.opacity = "1";
-  cursorGlow.style.transform = `translate(${event.clientX - 140}px, ${event.clientY - 140}px)`;
+  if (cursorGlow) {
+    cursorGlow.style.opacity = "1";
+    cursorGlow.style.transform = `translate(${event.clientX - 140}px, ${event.clientY - 140}px)`;
+  }
 });
 
 window.addEventListener("pointerleave", () => {
-  cursorGlow.style.opacity = "0";
+  if (cursorGlow) {
+    cursorGlow.style.opacity = "0";
+  }
 });
 
-toTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (toTopButton) {
+  toTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
-mapStage.addEventListener("pointermove", (event) => {
-  const rect = mapStage.getBoundingClientRect();
-  const x = (event.clientX - rect.left) / rect.width - 0.5;
-  const y = (event.clientY - rect.top) / rect.height - 0.5;
+if (mapStage && mainMap) {
+  mapStage.addEventListener("pointermove", (event) => {
+    const rect = mapStage.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
 
-  mainMap.style.transform = `rotate(${2 + x * 2}deg) translate(${x * 10}px, ${y * 10}px)`;
-});
+    mainMap.style.transform = `rotate(${2 + x * 2}deg) translate(${x * 10}px, ${y * 10}px)`;
+  });
 
-mapStage.addEventListener("pointerleave", () => {
-  mainMap.style.transform = "";
-});
+  mapStage.addEventListener("pointerleave", () => {
+    mainMap.style.transform = "";
+  });
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {

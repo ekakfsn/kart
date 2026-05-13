@@ -211,6 +211,23 @@ h3 {
   font-size: clamp(18px, 2vw, 24px);
 }
 
+.page-hero {
+  min-height: 58vh;
+  padding: 110px 26px 70px;
+  border-bottom: 1px solid rgba(32, 23, 14, 0.12);
+}
+
+.page-hero h1 {
+  max-width: 1180px;
+  font-size: clamp(58px, 9vw, 138px);
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.page-section {
+  padding-top: 80px;
+}
+
 .hero-actions {
   gap: 12px;
   flex-wrap: wrap;
@@ -760,6 +777,34 @@ h3 {
     #d9bd7d;
 }
 
+.genealogy-map {
+  background:
+    radial-gradient(circle at 22% 24%, rgba(255, 248, 236, 0.55) 0 5px, transparent 6px),
+    radial-gradient(circle at 46% 52%, rgba(255, 248, 236, 0.55) 0 5px, transparent 6px),
+    radial-gradient(circle at 74% 30%, rgba(255, 248, 236, 0.55) 0 5px, transparent 6px),
+    linear-gradient(24deg, transparent 47%, rgba(197, 154, 87, 0.8) 48% 50%, transparent 51%),
+    linear-gradient(145deg, transparent 40%, rgba(255, 248, 236, 0.42) 41% 43%, transparent 44%),
+    #24382e;
+}
+
+.sport-map {
+  background:
+    radial-gradient(circle at 18% 78%, var(--terracotta) 0 7px, transparent 8px),
+    radial-gradient(circle at 42% 48%, var(--terracotta) 0 7px, transparent 8px),
+    radial-gradient(circle at 78% 22%, var(--terracotta) 0 7px, transparent 8px),
+    linear-gradient(120deg, transparent 28%, rgba(24, 61, 77, 0.58) 29% 31%, transparent 32%),
+    linear-gradient(28deg, rgba(35, 60, 45, 0.22), transparent),
+    #e4c077;
+}
+
+.gallery-grid-expanded {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gallery-grid-expanded .work-card-large {
+  grid-column: span 2;
+}
+
 .formats {
   overflow: hidden;
 }
@@ -830,6 +875,10 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   margin-top: 38px;
+}
+
+.timeline-wide {
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
 }
 
 .timeline article {
@@ -905,6 +954,16 @@ h3 {
   color: var(--white);
   font-size: clamp(26px, 4vw, 42px);
   font-family: "Playfair Display", Georgia, serif;
+}
+
+.contact-page {
+  margin-top: 30px;
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .to-top {
@@ -1063,7 +1122,17 @@ h3 {
 
   .gallery-grid,
   .format-rail,
+  .gallery-grid-expanded,
+  .brief-grid,
   .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-grid-expanded .work-card-large {
+    grid-column: span 1;
+  }
+
+  .timeline-wide {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1101,6 +1170,7 @@ h3 {
   }
 
   .hero,
+  .page-hero,
   .works,
   .studio,
   .map-lab,
@@ -1114,6 +1184,10 @@ h3 {
 
   .hero h1 {
     font-size: clamp(48px, 16vw, 78px);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(46px, 15vw, 76px);
   }
 
   .hero-stats,
@@ -1130,7 +1204,13 @@ h3 {
   }
 
   .gallery-grid,
+  .gallery-grid-expanded,
+  .brief-grid,
   .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-wide {
     grid-template-columns: 1fr;
   }
 

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Контакты Veresk Maps и форма брифа для заказа авторской карты." />
+    <title>Заказать карту — Veresk Maps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <a class="brand" href="index.html" aria-label="Veresk Maps">
+          <span class="brand-mark">VM</span>
+          <span>
+            <strong>Veresk Maps</strong>
+            <small>карты с характером</small>
+          </span>
+        </a>
+        <nav class="route-nav" aria-label="Основная навигация">
+          <a href="index.html">главная</a>
+          <a href="works.html">образцы</a>
+          <a href="studio.html">студия</a>
+          <a href="services.html">направления</a>
+          <a href="process.html">процесс</a>
+          <a href="contact.html">заказать</a>
+        </nav>
+        <a class="header-action" href="mailto:gattaca@yandex.ru">gattaca@yandex.ru</a>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <p class="eyebrow">Заказать</p>
+          <h1>Начните с темы, маршрута, периода или идеи подарка.</h1>
+          <p class="lead">
+            Страница без корзины: пользователь сразу понимает, что заказ индивидуальный,
+            и отправляет вводные для обсуждения.
+          </p>
+        </section>
+
+        <section class="contact contact-page" aria-labelledby="contact-title">
+          <div class="reveal-card">
+            <p class="eyebrow">Контакты</p>
+            <h2 id="contact-title">Опишите задачу в свободной форме.</h2>
+            <p>
+              Укажите тип карты, примерный размер, где она будет использоваться, какие
+              материалы уже есть и какие примеры визуально нравятся.
+            </p>
+          </div>
+          <div class="contact-card reveal-card">
+            <a href="mailto:gattaca@yandex.ru">gattaca@yandex.ru</a>
+            <p>Москва, Алтуфьевское шоссе, 85</p>
+            <p>ИП Марков Б.С. • ИНН 771500016357</p>
+          </div>
+        </section>
+
+        <section class="brief-grid page-section" aria-label="Что указать в заявке">
+          <article class="stack-card reveal-card">
+            <span>01</span>
+            <h3>Тема</h3>
+            <p>Исторический период, путешествие, сражение, родословная или вымышленный мир.</p>
+          </article>
+          <article class="stack-card reveal-card">
+            <span>02</span>
+            <h3>Формат</h3>
+            <p>Печать, цифровой файл, постер, карта для презентации или оформление интерьера.</p>
+          </article>
+          <article class="stack-card reveal-card">
+            <span>03</span>
+            <h3>Материалы</h3>
+            <p>Маршруты, даты, фотографии, ссылки, архивные сведения или просто идея.</p>
+          </article>
+        </section>
+      </main>
+    </div>
+    <button class="to-top" type="button" aria-label="Вернуться наверх">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>

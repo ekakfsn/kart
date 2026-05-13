@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Концепция и визуальный подход Veresk Maps: авторские карты как креативная мастерская." />
+    <title>Студия — Veresk Maps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <a class="brand" href="index.html" aria-label="Veresk Maps">
+          <span class="brand-mark">VM</span>
+          <span>
+            <strong>Veresk Maps</strong>
+            <small>карты с характером</small>
+          </span>
+        </a>
+        <nav class="route-nav" aria-label="Основная навигация">
+          <a href="index.html">главная</a>
+          <a href="works.html">образцы</a>
+          <a href="studio.html">студия</a>
+          <a href="services.html">направления</a>
+          <a href="process.html">процесс</a>
+          <a href="contact.html">заказать</a>
+        </nav>
+        <a class="header-action" href="mailto:gattaca@yandex.ru">gattaca@yandex.ru</a>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <p class="eyebrow">Студия</p>
+          <h1>Не шаблонная визитка, а ощущение картографической лаборатории.</h1>
+          <p class="lead">
+            Страница объясняет подход: карта может быть подарком, историей, интерьерным
+            объектом, учебной схемой или визуальным центром проекта.
+          </p>
+        </section>
+
+        <section class="studio page-section">
+          <div class="studio-panel reveal-card">
+            <p class="eyebrow">Концепция</p>
+            <h2>Визуальный язык строится вокруг маршрута, легенды и архива.</h2>
+            <p>
+              Сайт показывает ручной характер работы: неровный масштаб карточек, живые
+              линии маршрутов, крупная типографика и декоративные слои старой карты.
+            </p>
+          </div>
+          <div class="studio-stack" aria-label="Принципы сайта">
+            <article class="stack-card reveal-card">
+              <span>01</span>
+              <h3>Карта как интерфейс</h3>
+              <p>Навигация ощущается как движение между точками экспедиции.</p>
+            </article>
+            <article class="stack-card reveal-card">
+              <span>02</span>
+              <h3>Архивный характер</h3>
+              <p>Фактура бумаги, сетки, подписи и маршруты создают ощущение мастерской.</p>
+            </article>
+            <article class="stack-card reveal-card">
+              <span>03</span>
+              <h3>Без лишней админки</h3>
+              <p>Тексты и медиа можно заменить прямо в HTML-файлах.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="map-lab" aria-label="Декоративная схема">
+          <div class="lab-copy reveal-card">
+            <p class="eyebrow">Сборка карты</p>
+            <h2>От идеи до готового визуального объекта.</h2>
+          </div>
+          <div class="lab-board reveal-card">
+            <span class="lab-node lab-node-one">бриф</span>
+            <span class="lab-node lab-node-two">факты</span>
+            <span class="lab-node lab-node-three">стиль</span>
+            <span class="lab-node lab-node-four">макет</span>
+            <svg viewBox="0 0 900 420" aria-hidden="true">
+              <path class="lab-path path-a" d="M60 310 C210 120 310 390 450 180 C590 -20 700 310 850 100" />
+              <path class="lab-path path-b" d="M80 110 C220 260 340 70 480 250 C620 430 720 120 840 300" />
+              <path class="lab-path path-c" d="M120 350 C250 300 290 160 420 220 C560 285 645 210 790 60" />
+            </svg>
+          </div>
+        </section>
+      </main>
+    </div>
+    <button class="to-top" type="button" aria-label="Вернуться наверх">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
